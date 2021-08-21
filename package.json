@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index",
-    "build": "del /s /q dist && tsc",
+    "build": "tsc --build --clean",
     "dev": "tsc --watch"
   },
   "keywords": [],
