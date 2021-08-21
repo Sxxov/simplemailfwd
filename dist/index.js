@@ -2,6 +2,7 @@ import Mailjet from 'node-mailjet';
 import * as dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import { StatusCodes as HTTPStatusCodes } from 'http-status-codes';
 import { IllegalStateError } from './resources/errors/illegalState.error.js';
 import { isValidEmailAddress, sanitizeEmail } from './sanitize.js';
@@ -15,7 +16,7 @@ const port = process.env.PORT ?? 80;
 const mailjet = Mailjet.connect(process.env.MAILJET_API_KEY, process.env.MAILJET_SECRET);
 const app = express();
 const ipToRememberedAttempts = new Map();
-app.use(express.static('public'));
+app.use(cors);
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -48,7 +49,7 @@ app.post('/api/v1/email', async (req, res) => {
         ipToRememberedAttempts.set(ip, rememberedAttempts - 1);
     }, 10 * 60 * 1000);
     await mailjet
-        .post('send', { version: 'v3.1', perform_api_call: false })
+        .post('send', { version: 'v3.1' })
         .request({
         Messages: [
             {
