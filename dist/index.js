@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { StatusCodes as HTTPStatusCodes } from 'http-status-codes';
 import { IllegalStateError } from './resources/errors/illegalState.error.js';
-import { isValidEmailAddress, sanitizeEmail } from './sanitize.js';
+import { sanitizeEmail } from './sanitize.js';
 dotenv.config();
 if (!process.env.MAILJET_API_KEY
     || !process.env.MAILJET_SECRET
@@ -34,12 +34,10 @@ app.post('/api/v1/email', async (req, res) => {
         return res
             .sendStatus(HTTPStatusCodes.TOO_MANY_REQUESTS);
     }
-    const { name, email, subject, content, } = req.body;
+    const { name, subject, content, } = req.body;
     if (!name
-        || !email
         || !subject
-        || !content
-        || !isValidEmailAddress(email)) {
+        || !content) {
         return res
             .sendStatus(HTTPStatusCodes.BAD_REQUEST);
     }
