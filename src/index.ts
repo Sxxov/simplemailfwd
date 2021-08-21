@@ -6,7 +6,7 @@ import cors from 'cors';
 
 import { StatusCodes as HTTPStatusCodes } from 'http-status-codes';
 import { IllegalStateError } from './resources/errors/illegalState.error.js';
-import { isValidEmailAddress, sanitizeEmail } from './sanitize.js';
+import { sanitizeEmail } from './sanitize.js';
 
 dotenv.config();
 
@@ -51,16 +51,13 @@ app.post('/api/v1/email', async (req, res) => {
 
 	const {
 		name,
-		email,
 		subject,
 		content,
 	} = req.body as Record<string, string>;
 
 	if (!name
-		|| !email
 		|| !subject
-		|| !content
-		|| !isValidEmailAddress(email)) {
+		|| !content) {
 		return res
 			.sendStatus(HTTPStatusCodes.BAD_REQUEST);
 	}
