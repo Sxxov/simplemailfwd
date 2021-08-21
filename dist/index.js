@@ -16,7 +16,7 @@ const port = process.env.PORT ?? 80;
 const mailjet = Mailjet.connect(process.env.MAILJET_API_KEY, process.env.MAILJET_SECRET);
 const app = express();
 const ipToRememberedAttempts = new Map();
-app.use(cors);
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
