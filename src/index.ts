@@ -25,7 +25,7 @@ const mailjet = Mailjet.connect(
 const app = express();
 const ipToRememberedAttempts = new Map<string, number>();
 
-app.use(cors);
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
