@@ -1,0 +1,37 @@
+{
+  "name": "simplemailfwd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index",
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node-mailjet": "^3.3.7",
+    "@types/sanitize-html": "^2.3.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "eslint": "^7.32.0",
+    "eslint-config-xo": "^0.37.0",
+    "eslint-config-xo-typescript": "^0.43.0",
+    "ts-transformer-keys": "^0.4.3",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@types/morgan": "^1.9.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "morgan": "^1.10.0",
+    "node-mailjet": "^3.3.4",
+    "sanitize-html": "^2.4.0"
+  }
+}

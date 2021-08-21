@@ -1,0 +1,33 @@
+{
+	"include": [
+		"src", 
+		"types",
+		"*.config.js",
+	],
+	"compilerOptions": {
+		"outDir": "dist",
+		"module": "esnext",
+		"target": "esnext",
+		"moduleResolution": "node",
+		"jsx": "preserve",
+		"baseUrl": "./",
+		"paths": {},
+		"strict": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"useDefineForClassFields": false,
+		"allowSyntheticDefaultImports": true,
+		"importsNotUsedAsValues": "error",
+		"experimentalDecorators": true,
+		"declaration": true,
+		"declarationDir": "dist",
+		"typeRoots": [
+			"node_modules/@types",
+			"types",
+		],
+		"types": [
+			"node",
+		],
+	}
+}
