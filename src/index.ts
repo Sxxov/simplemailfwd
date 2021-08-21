@@ -72,7 +72,7 @@ app.post('/api/v1/email', async (req, res) => {
 	}, 10 * 60 * 1000);
 
 	await mailjet
-		.post('send', { version: 'v3.1', perform_api_call: false })
+		.post('send', { version: 'v3.1' })
 		.request({
 			Messages: [
 				{
