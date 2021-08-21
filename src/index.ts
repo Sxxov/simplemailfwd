@@ -2,6 +2,7 @@ import Mailjet from 'node-mailjet';
 import * as dotenv from 'dotenv';
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import { StatusCodes as HTTPStatusCodes } from 'http-status-codes';
 import { IllegalStateError } from './resources/errors/illegalState.error.js';
@@ -24,6 +25,7 @@ const mailjet = Mailjet.connect(
 const app = express();
 const ipToRememberedAttempts = new Map<string, number>();
 
+app.use(cors);
 app.use(express.static('public'));
 app.use(morgan('tiny'));
 app.use(express.json());
