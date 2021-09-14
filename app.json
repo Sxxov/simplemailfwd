@@ -1,0 +1,5 @@
+{
+	"name": "Simple Mail Forwarder",
+	"description": "Forward mail to your own email using a REST API",
+	"repository": "https://github.com/sxxov/simplemailfwd"
+}
